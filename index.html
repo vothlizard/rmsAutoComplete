@@ -1,0 +1,29 @@
+ <!DOCTYPE html>
+<html lang="en-US">
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js" integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw=" crossorigin="anonymous"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<script src="scripts/rmsAutoComplete.js"></script>
+<script type="text/javascript">
+	angular.module('AutoCompleteApp', ['rmsAngularJSControls']);
+	angular.module('AutoCompleteApp').controller('AutoCompleteCtrl', ['$scope', function($scope){
+		$scope.SelectedAccount = null;
+	}])
+
+</script>
+<link rel="stylesheet" type="text/css" href="content/rmsAutoComplete.css">
+<body>
+
+<div ng-app="AutoCompleteApp" ng-controller="AutoCompleteCtrl">
+  <input type="text" class="col-md-6" style="display:block !important; width:50% !important;"
+                              rms-auto-complete rms-selected="SelectedAcount"
+                               rms-language="Eng" rms-text="ClientAccountName" rms-value="ClientAccountCode" 
+                               rms-url="http://localhost:60995/"
+                               rms-query="Definitions/Scm/ClientAccount/SearchResult" />
+    <span>{{SelectedAcount}}</span>
+</div>
+
+</body>
+</html> 
